@@ -14,7 +14,7 @@ export default function ScoreBoard(props: ScoreBoardProps) {
         )});
 
     return (
-        <div className="bg-gray-200 border-dashed border-gray-800 border-2 py-2 px-5 mt-14 w-fit">
+        <div className="bg-gray-200 border-dashed border-gray-800 border-2 py-2 px-5 w-fit">
             <p className="font-bold text-gray-700 mb-3">Score:</p>
             <div className="flex flex-row gap-x-2 items-center">
                 <div className="h-8 w-8 bg-red-300 rounded-full flex items-center justify-center">
