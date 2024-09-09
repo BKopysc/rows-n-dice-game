@@ -1,23 +1,22 @@
-import CircleTile from "../tiles/CircleTile";
+import BasicTile, { ETileVariant } from "../tiles/BasicTile";
 import EmptyTile from "../tiles/EmptyTile";
-import SquareTile from "../tiles/SquareTile";
-import BasicRow from "./BasicRow";
+import BasicRow, { AnyRowProps } from "./BasicRow";
 
-export default function SecondRow() {
+export default function SecondRow(props: AnyRowProps): JSX.Element {
     return (
         <div className="flex flex-row gap-x-1">
             <EmptyTile />
             <BasicRow color="yellow">
-                <CircleTile />
-                <CircleTile />
-                <CircleTile />
-                <CircleTile />
-                <CircleTile />
+            <BasicTile cell={props.rowState.cells[1]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+            <BasicTile cell={props.rowState.cells[2]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+            <BasicTile cell={props.rowState.cells[3]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+            <BasicTile cell={props.rowState.cells[4]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+            <BasicTile cell={props.rowState.cells[5]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
                 <EmptyTile />
-                <CircleTile />
-                <SquareTile />
-                <CircleTile />
-                <CircleTile />
+                <BasicTile cell={props.rowState.cells[7]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+                <BasicTile cell={props.rowState.cells[8]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.SQUARE_BONUS}/>
+                <BasicTile cell={props.rowState.cells[9]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
+                <BasicTile cell={props.rowState.cells[10]} rowId={1} setCell={props.setCell} validateCell={props.validateCell} variant={ETileVariant.CIRCLE}/>
             </BasicRow>
         </div>
     )
