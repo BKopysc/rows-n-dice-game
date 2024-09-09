@@ -16,7 +16,7 @@ export default function OfflinePage() {
 
 
     const [game, setGame] = useState(createNewBasicGame());
-    const [isDiceButtonChecked, setIsDiceButtonChecked] = useState(false);
+    const [isDiceButtonChecked, setIsDiceButtonChecked] = useState(true);
     const [isScoreButtonChecked, setIsScoreButtonChecked] = useState(true);
 
     const setCell: SetCellFunction = (rowId: number, cellId: number, value: string) => {
@@ -79,7 +79,8 @@ export default function OfflinePage() {
                     {isScoreButtonChecked ?
                         <ScoreBoard score={game.score} /> : <></>
                     }
-                    <DiceBoard />
+                    {isDiceButtonChecked ? <DiceBoard size='sm'/> : <></>}
+                    
                     </div>
 
                 </div>

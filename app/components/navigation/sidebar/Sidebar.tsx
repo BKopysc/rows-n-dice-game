@@ -18,6 +18,9 @@ export default function Sidebar(props: SidebarProps): JSX.Element {
                     <a href="/online">Online</a>
                 </li>
                 <li className="p-5 hover:bg-gray-700">
+                    <a href="/dice">Dice</a>
+                </li>
+                <li className="p-5 hover:bg-gray-700">
                     <a href="/about">About</a>
                 </li>
             </ul>

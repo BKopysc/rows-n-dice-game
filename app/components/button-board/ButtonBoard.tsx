@@ -21,7 +21,7 @@ export default function ButtonBoard(props: ButtonBoardProps) {
                 <FailureBoards failures={props.failures} failureAction={props.failureAction} />
             </div>
             <div className="flex flex-row items-center gap-x-3">
-                <BasicButton text="Reset" clickAction={props.resetAction} color={"red"} />
+                <BasicButton text="Reset" clickAction={props.resetAction} color={"red"} size="sm"/>
                 <CheckboxButton text="Score" clickAction={props.scoreAction} checked={props.scoreButtonState} uncheckedSvg={
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <rect x="3" y="3" width="18" height="18" rx="4" ry="4" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />

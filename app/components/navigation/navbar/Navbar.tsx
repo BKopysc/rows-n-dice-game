@@ -28,6 +28,11 @@ export default function Navbar(props: NavbarProps): JSX.Element {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/dice">
+                    <p>Dice</p>
+                  </Link>
+                </li>
+                <li>
                     <Link href="/about">
                         <p>About</p>
                     </Link>

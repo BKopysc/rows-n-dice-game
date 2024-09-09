@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import BasicButton from "../button/BasicButton";
 import Dice from "./Dice";
 
+interface DiceBoardProps {
+    size: 'sm' | 'md';
+}
 
-export default function DiceBoard() {
+export default function DiceBoard(props: DiceBoardProps) {
 
     const [redDice, setRedDice] = useState(1);
     const [blueDice, setBlueDice] = useState(1);
@@ -69,18 +72,20 @@ export default function DiceBoard() {
         }, interval);
     };
 
+
+
     return (
         <div className="px-3 py-4 bg-lime-200 border-2 rounded-sm border-lime-500 flex flex-col items-center justify-center ">
             <div className="flex pb-5 gap-x-5">
-                <Dice color="red" value={redDice} isSelected={isRedSelected}
+                <Dice color="red" value={redDice} isSelected={isRedSelected} size={props.size}
                     setSelected={setIsRedSelected} isRolling={isRedRolling} />
-                <Dice color="blue" value={blueDice} isSelected={isBlueSelected}
+                <Dice color="blue" value={blueDice} isSelected={isBlueSelected} size={props.size}
                     setSelected={setIsBlueSelected} isRolling={isBlueRolling} />
-                <Dice color="yellow" value={yellowDice} isSelected={isYellowSelected}
+                <Dice color="yellow" value={yellowDice} isSelected={isYellowSelected} size={props.size}
                     setSelected={setIsYellowSelected} isRolling={isYellowRolling} />
             </div>
             <div className="flex flex-row w-full items-center justify-center relative">
-                <BasicButton color="lime" text="Roll" clickAction={rollDice} />
+                <BasicButton color="lime" text="Roll" clickAction={rollDice} size={props.size}/>
                 <div className="absolute right-1 top-0">
                     <span>= {points}</span>
                 </div>

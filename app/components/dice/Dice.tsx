@@ -9,6 +9,7 @@ interface DiceProps {
     setSelected: React.Dispatch<React.SetStateAction<boolean>>;
     value: number;
     isRolling: boolean;
+    size: 'sm' | 'md';
 }
 
 export default function Dice(props: DiceProps) {
@@ -25,11 +26,13 @@ export default function Dice(props: DiceProps) {
         'blue': "border-blue-800 "
     }
 
+    const sizeDice = props.size === 'sm' ?  'w-12 h-12 text-2xl' : 'w-16 h-16 text-3xl';
+
     const isSelectedColor = props.isSelected ? selectedColors[props.color] : ""; 
 
     return (
-        <button className={"diceContainer w-12 h-12 flex items-center justify-center text-2xl rounded-md border-4 p-2 hover:cursor-pointer " 
-            + colors[props.color] + isSelectedColor + (props.isRolling ? ' rolling' : ' ') }
+        <button className={"diceContainer flex items-center justify-center rounded-md border-4 p-2 hover:cursor-pointer " 
+            + colors[props.color] + isSelectedColor + (props.isRolling ? ' rolling ' : ' ') + sizeDice}
             onClick={() => props.setSelected(!props.isSelected)}
         >
             <span>{props.value}</span>
