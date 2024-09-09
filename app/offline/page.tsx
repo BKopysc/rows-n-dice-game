@@ -13,8 +13,6 @@ import DiceBoard from "../components/dice/DiceBoard";
 
 export default function OfflinePage() {
 
-
-
     const [game, setGame] = useState(createNewBasicGame());
     const [isDiceButtonChecked, setIsDiceButtonChecked] = useState(true);
     const [isScoreButtonChecked, setIsScoreButtonChecked] = useState(true);
@@ -67,8 +65,6 @@ export default function OfflinePage() {
     return (
         <div className="p-5 md:p-10">
             <h1 className="text-xl mb-5 text-sky-900 font-medium">Offline board</h1>
-            <button onClick={showTest} className="bg-sky-500 text-white px-3 py-1 rounded-md">Show test</button>
-            <button onClick={resetBtn} className="bg-sky-500 text-white px-3 py-1 rounded-md ml-2">Reset</button>
             <div className="flex justify-center">
                 <div className="flex flex-col items-center max-w-fit">
                     <Board gameState={game} setCell={setCell} validateCell={validateCell} />
