@@ -1,11 +1,14 @@
 
 'use client';
 
+import styles from './Dice.module.css';
+
 interface DiceProps {
     color: 'red' | 'yellow' | 'blue';
     isSelected: boolean;
     setSelected: React.Dispatch<React.SetStateAction<boolean>>;
     value: number;
+    isRolling: boolean;
 }
 
 export default function Dice(props: DiceProps) {
@@ -17,15 +20,16 @@ export default function Dice(props: DiceProps) {
     }
 
     const selectedColors = {
-        'red': "border-red-800",
-        'yellow': "border-yellow-800",
-        'blue': "border-blue-800"
+        'red': "border-red-800 ",
+        'yellow': "border-yellow-800 ",
+        'blue': "border-blue-800 "
     }
 
     const isSelectedColor = props.isSelected ? selectedColors[props.color] : ""; 
 
     return (
-        <button className={"w-12 h-12 flex items-center justify-center text-2xl rounded-md border-4 p-2 hover:cursor-pointer " + colors[props.color] + isSelectedColor}
+        <button className={"diceContainer w-12 h-12 flex items-center justify-center text-2xl rounded-md border-4 p-2 hover:cursor-pointer " 
+            + colors[props.color] + isSelectedColor + (props.isRolling ? ' rolling' : ' ') }
             onClick={() => props.setSelected(!props.isSelected)}
         >
             <span>{props.value}</span>
