@@ -15,7 +15,7 @@ export default function Navbar(props: NavbarProps): JSX.Element {
         <div className="w-full h-20 bg-gray-800 top-0">
           <div className="container mx-auto px-2 h-full sm: px-5">
             <div className="flex items-center gap-20 h-full">
-              <span className="text-white font-bold">Rows'n'dice</span>
+              <span className="text-white font-bold">{"Rows'n'dice"}</span>
               <ul className="hidden md:flex gap-x-10 text-gray-300">
                 <li>
                   <Link href="/offline">

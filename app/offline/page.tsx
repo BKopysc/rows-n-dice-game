@@ -3,8 +3,6 @@
 import { use, useEffect, useState } from "react";
 import Board from "../components/board/Board";
 import ButtonBoard from "../components/button-board/ButtonBoard";
-import FailureBoards from "../components/failure-board/FailureBoard";
-import FirstRow from "../components/row/FirstRow";
 import ScoreBoard from "../components/score-board/ScoreBoard";
 import { createNewBasicGame } from "../game-utils/BasicGamesObject";
 import { IGameScore, SetCellFunction, SetCheckedFailureFunction, ValidateCellFunction } from "../interface/IGame";

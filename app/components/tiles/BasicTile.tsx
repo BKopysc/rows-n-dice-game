@@ -1,5 +1,5 @@
 'use client';
-import { debounceInput } from "@/app/game-utils/DebounceFunc";
+
 import { IAnyTileProps } from "@/app/interface/IAnyTile";
 import { IGameCell, SetCellFunction, ValidateCellFunction } from "@/app/interface/IGame";
 import { clear } from "console";
@@ -49,12 +49,6 @@ export default function BasicTile(props: IBasicTileProps): JSX.Element{
             setTimer(newTimer);
         }
     }
-
-    const debouncedValidateCell = useCallback(
-        debounceInput((rowId: number, cellId: number, value: string) => {
-            props.validateCell(rowId, cellId, value);
-        }, 500), []
-    );
 
     return(
         <div className="w-12 h-12 p-1">
