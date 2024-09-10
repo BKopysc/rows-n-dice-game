@@ -22,13 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navigation />
         {children}
-        <Toaster position="top-center" toastOptions={{
+        <Toaster position="bottom-left" toastOptions={{
           error:{
             duration:1500
           }}}
-          containerStyle={{
-            top:100
-          }}
           />
         </body>
     </html>

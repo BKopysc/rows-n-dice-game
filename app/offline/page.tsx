@@ -85,7 +85,7 @@ export default function OfflinePage() {
 
     return (
         <div className="p-5 md:p-10">
-            <h1 className="text-xl mb-5 text-sky-900 font-medium">Offline board</h1>
+            <h1 className="text-2xl mb-5 text-sky-900 font-medium text-center">Offline board</h1>
             {isPortrait ?
                 <RotateInfo/>
                 :
