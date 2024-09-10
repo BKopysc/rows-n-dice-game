@@ -2,16 +2,25 @@
 import { IBasicGame, IGameRow, IGameScore } from "../interface/IGame";
 
 
+export interface IValidateCellResponse{
+    result: boolean;
+    status: 'success' | 'error';
+    message: string;
+}
 
 
-export function validateCellGameFunction(rowId: number, cellId: number, value: string, basicGame: IBasicGame): boolean {
+export function validateCellGameFunction(rowId: number, cellId: number, value: string, basicGame: IBasicGame): IValidateCellResponse {
     let cell = basicGame.rows[rowId].cells[cellId];
     let row = basicGame.rows[rowId];
 
     console.log("Validating cell: " + value);
 
     if (value === "") {
-        return true;
+        return {
+            result: true,
+            status: 'success',
+            message: "Empty"
+        };
     }
 
     //check if all previous cells are decreasing or empty
@@ -20,7 +29,12 @@ export function validateCellGameFunction(rowId: number, cellId: number, value: s
         if (row.cells[i].isEmpty === false && row.cells[i].state !== "") {
             if (parseInt(row.cells[i].state) >= parseInt(value)) {
                 console.log("Previous cells are not decreasing");
-                return false
+                return {
+                    result: false,
+                    status: 'error',
+                    message: "Too low"
+                };
+                
             }
         }
     }
@@ -30,7 +44,11 @@ export function validateCellGameFunction(rowId: number, cellId: number, value: s
         if (row.cells[i].isEmpty === false && row.cells[i].state !== "") {
             if (parseInt(row.cells[i].state) <= parseInt(value)) {
                 console.log("Next cells are not increasing");
-                return false;
+                return{
+                    result: false,
+                    status: 'error',
+                    message: "Too high"
+                }
             }
         }
     }
@@ -39,12 +57,20 @@ export function validateCellGameFunction(rowId: number, cellId: number, value: s
     for (let i = 0; i < basicGame.rows.length; i++) {
         if (basicGame.rows[i].cells[cellId].state === value && basicGame.rows[i].cells[cellId].isEmpty === false) {
             console.log("Same value in the column");
-            return false;
+            return {
+                result: false,
+                status: 'error',
+                message: "Exists in column"
+            }
         }
     }
 
     console.log("Cell is valid");
-    return true;
+    return {
+        result: true,
+        status: 'success',
+        message: "Valid"
+    };
 }
 
 export function getRowScore(row: IGameRow): number {
