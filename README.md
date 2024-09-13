@@ -3,6 +3,9 @@
 This is a simple game where you have to roll the dice and try to fill the rows with the numbers you get. It's a simple implementation of Qwinto game.
 
 <b>Play here:</b> [https://rows-n-dice-game.pages.dev/](https://rows-n-dice-game.pages.dev/)
+</br></br>
+![image](https://github.com/user-attachments/assets/bacd6b65-d9ed-4069-8721-a3844916fd36)
+
 
 ## Key Features:
 - Offline play  (online play in progress)
