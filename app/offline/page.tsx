@@ -86,26 +86,26 @@ export default function OfflinePage() {
     return (
         <div className="p-5 md:p-10">
             <h1 className="text-2xl mb-5 text-sky-900 font-medium text-center">Offline board</h1>
-            {isPortrait ?
-                <RotateInfo/>
-                :
-                <div className="flex justify-center">
-                    <div className="flex flex-col items-center max-w-fit">
+            <div className="flex justify-center">
+                <div className="flex flex-col items-center max-w-fit">
+                    <div className="overflow-scroll max-w-[90vw] md:max-w-max md:overflow-auto">
                         <Board gameState={game} setCell={setCell} validateCell={validateCell} />
-                        <ButtonBoard diceAction={setDiceButton} resetAction={resetBtn} scoreAction={setScoreButton} scoreButtonState={isScoreButtonChecked}
-                            diceButtonState={isDiceButtonChecked} failures={game.failures} failureAction={setCheckedFailure} />
+                    </div>
 
-                        <div className="flex items-center justify-center mt-10 gap-x-10">
-                            {isScoreButtonChecked ?
-                                <ScoreBoard score={game.score} /> : <></>
-                            }
-                            {isDiceButtonChecked ? <DiceBoard size='sm' /> : <></>}
+                    <ButtonBoard diceAction={setDiceButton} resetAction={resetBtn} scoreAction={setScoreButton} scoreButtonState={isScoreButtonChecked}
+                        diceButtonState={isDiceButtonChecked} failures={game.failures} failureAction={setCheckedFailure} />
 
-                        </div>
+                    <div className="flex flex-col items-center justify-center mt-10 gap-10 md:flex-row">
+                        {isScoreButtonChecked ?
+                            <ScoreBoard score={game.score} /> : <></>
+                        }
+                        {isDiceButtonChecked ? <DiceBoard size='sm' /> : <></>}
 
                     </div>
+
                 </div>
-            }
+            </div>
+
         </div>
     )
 }

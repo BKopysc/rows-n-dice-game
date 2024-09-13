@@ -16,11 +16,11 @@ export interface ButtonBoardProps {
 
 export default function ButtonBoard(props: ButtonBoardProps) {
     return (
-        <div className="flex flex-row mt-3 gap-x-2 items-center justify-between ml-auto w-full">
+        <div className="flex flex-col mt-3 gap-5 items-center justify-between ml-auto w-full md:flex-row">
             <div>
                 <FailureBoards failures={props.failures} failureAction={props.failureAction} />
             </div>
-            <div className="flex flex-row items-center gap-x-3">
+            <div className="flex flex-row items-center gap-x-5">
                 <BasicButton text="Reset" clickAction={props.resetAction} color={"red"} size="sm"/>
                 <CheckboxButton text="Score" clickAction={props.scoreAction} checked={props.scoreButtonState} uncheckedSvg={
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
